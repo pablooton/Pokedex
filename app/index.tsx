@@ -1,6 +1,7 @@
+import Button from "@/components/Button";
 import List from "@/components/List";
 import { ListItemProps } from "@/components/ListItem";
-import { StatusBar, StyleSheet } from "react-native";
+import { StatusBar, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const pokemonData = {
@@ -100,8 +101,12 @@ type PokemonDataType = {
 
 const Index = () => (
 
-    <SafeAreaView>
+    <SafeAreaView style = {styles.container}>
      <List items={pokemonData.results} />
+     <View style = {styles.buttonContainer}>
+      <Button leftIcon="chevron-left" text="Previous" onPress={() => null}/>
+      <Button rightIcon="chevron-left" text="Previous" onPress={() => null}/>
+     </View>
     </SafeAreaView>
   );
 const styles = StyleSheet.create({
@@ -109,6 +114,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  }
 });
 
 
