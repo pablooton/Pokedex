@@ -6,10 +6,11 @@ type ButtonProps = {
     text:string;
     rightIcon?: typeof MaterialIcons.defaultProps.name;
     onPress: () => void;
+    disabled ?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({leftIcon,text,rightIcon,onPress}) =>
-    <Pressable onPress={onPress}>
+const Button: React.FC<ButtonProps> = ({leftIcon,text,rightIcon,onPress,disabled}) =>
+    <Pressable style={[styles.button, disabled && styles.disabledButton]} onPress={onPress} disabled={disabled}>
         {leftIcon && <MaterialIcons name= {leftIcon} size={24} color="black" />}
         <Text style={styles.text}>{text}</Text>
         {rightIcon && <MaterialIcons name= {rightIcon} size={24} color="black" />}
